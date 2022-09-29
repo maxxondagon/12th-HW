@@ -56,15 +56,55 @@
 		1F5AF7CD28E57D6E0054C193 /* 12th-HW */ = {
 			isa = PBXGroup;
 			children = (
+				1F5AF80728E5A3FA0054C193 /* Resources */,
+				1F5AF80828E5A4040054C193 /* Sources */,
+			);
+			path = "12th-HW";
+			sourceTree = "<group>";
+		};
+		1F5AF80728E5A3FA0054C193 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F5AF7D728E57D6F0054C193 /* Assets.xcassets */,
+				1F5AF80928E5A40A0054C193 /* Configuration */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1F5AF80828E5A4040054C193 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1F5AF80B28E5A4200054C193 /* Storyboards */,
+				1F5AF80A28E5A41C0054C193 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1F5AF80928E5A40A0054C193 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1F5AF7DC28E57D6F0054C193 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		1F5AF80A28E5A41C0054C193 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				1F5AF7CE28E57D6E0054C193 /* AppDelegate.swift */,
 				1F5AF7D028E57D6E0054C193 /* SceneDelegate.swift */,
 				1F5AF7D228E57D6E0054C193 /* ViewController.swift */,
-				1F5AF7D428E57D6E0054C193 /* Main.storyboard */,
-				1F5AF7D728E57D6F0054C193 /* Assets.xcassets */,
-				1F5AF7D928E57D6F0054C193 /* LaunchScreen.storyboard */,
-				1F5AF7DC28E57D6F0054C193 /* Info.plist */,
 			);
-			path = "12th-HW";
+			path = App;
+			sourceTree = "<group>";
+		};
+		1F5AF80B28E5A4200054C193 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1F5AF7D428E57D6E0054C193 /* Main.storyboard */,
+				1F5AF7D928E57D6F0054C193 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,12 +329,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MYSXL7XCCM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "12th-HW/Info.plist";
+				INFOPLIST_FILE = "12th-HW/Resources/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,12 +358,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MYSXL7XCCM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "12th-HW/Info.plist";
+				INFOPLIST_FILE = "12th-HW/Resources/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
