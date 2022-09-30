@@ -12,9 +12,14 @@ class ViewController: UIViewController {
 
     // MARK: - Outlets
     
+    var timer = Timer()
+    var timerDuration = 10
+    var isStarted = false
+    var isWorkingTime = true
+    
     private lazy var timerlabel: UILabel = {
         let timerLabel = UILabel()
-        timerLabel.text = "0)))"
+        timerLabel.text = "\(timerDuration)"
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
         return timerLabel
     }()
@@ -23,6 +28,7 @@ class ViewController: UIViewController {
         let timerButton = UIButton(type: .system)
         timerButton.setTitle("Start", for: .normal)
         timerButton.backgroundColor = .systemMint
+        timerButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         timerButton.translatesAutoresizingMaskIntoConstraints = false
         return timerButton
     }()
@@ -51,10 +57,38 @@ class ViewController: UIViewController {
         
         startButton.snp.makeConstraints { make in
             make.top.equalTo(timerlabel.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(30)
         }
     }
     
     // MARK: - Actions
+    
+    @objc private func buttonPressed() {
+        isStarted = !isStarted
+        if isStarted {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
+        } else {
+            timer.invalidate()
+        }
+            }
+ 
+    @objc private func timerTick() {
+        timerDuration -= 1
+        timerlabel.text = "\(timerDuration)"
+        if timerDuration == 0 {
+            isStarted = !isStarted
+            isWorkingTime = !isWorkingTime
+            if !isWorkingTime {
+                timerlabel.text = "time to rest"
+                timer.invalidate()
+                timerDuration = 5
+            } else {
+                timerlabel.text = "time to work"
+                timer.invalidate()
+                timerDuration = 10
+            }
+        }
+    }
+  
 }
 
