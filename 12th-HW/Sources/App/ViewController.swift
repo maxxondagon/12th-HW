@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         let timerButton = UIButton(type: .system)
         timerButton.setTitle("Start", for: .normal)
         timerButton.backgroundColor = .systemMint
-        timerButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        timerButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
         timerButton.translatesAutoresizingMaskIntoConstraints = false
         return timerButton
     }()
@@ -56,39 +56,52 @@ class ViewController: UIViewController {
         }
         
         startButton.snp.makeConstraints { make in
-            make.top.equalTo(timerlabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(60)
+            make.top.equalTo(timerlabel.snp.bottom).offset(40)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
         }
     }
     
     // MARK: - Actions
     
-    @objc private func buttonPressed() {
+    @objc private func startButtonPressed() {
         isStarted = !isStarted
         if isStarted {
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
+            startButton.backgroundColor = .systemRed
+            startButton.setTitle("Stop", for: .normal)
         } else {
             timer.invalidate()
+            startButton.backgroundColor = .systemMint
+            startButton.setTitle("Return", for: .normal)
         }
             }
- 
+    
+    private func selectTypeOfTime() {
+        if  isWorkingTime {
+            timerlabel.text = "time to work"
+            timer.invalidate()
+            timerDuration = 10
+            startButton.backgroundColor = .systemMint
+            startButton.setTitle("Start work", for: .normal)
+        } else {
+            timerlabel.text = "time to rest"
+            timer.invalidate()
+            timerDuration = 5
+            startButton.backgroundColor = .systemMint
+            startButton.setTitle("Start rest", for: .normal)
+        }
+    }
+    
     @objc private func timerTick() {
         timerDuration -= 1
         timerlabel.text = "\(timerDuration)"
         if timerDuration == 0 {
             isStarted = !isStarted
             isWorkingTime = !isWorkingTime
-            if !isWorkingTime {
-                timerlabel.text = "time to rest"
-                timer.invalidate()
-                timerDuration = 5
-            } else {
-                timerlabel.text = "time to work"
-                timer.invalidate()
-                timerDuration = 10
-            }
+            selectTypeOfTime()
         }
     }
-  
 }
 
